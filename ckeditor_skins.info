@@ -5,3 +5,5 @@ backdrop = 1.x
 type = module
 
 dependencies[] = ckeditor
+
+configure = admin/config/content/ckeditor_skins
