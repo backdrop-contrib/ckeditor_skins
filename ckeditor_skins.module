@@ -17,7 +17,17 @@ function ckeditor_skins_ckeditor_settings_alter(&$settings, $format) {
 
     // @see https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-skin
     $settings['skin'] = "$name,$skin_url";
-    // @todo the dark skin needs some css love re Backdrop plugin icons.
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function ckeditor_skins_form_alter(&$form, &$form_state, $form_id) {
+  $skin = config_get('ckeditor_skins.settings', 'skin');
+  if ($skin == 'moono-dark') {
+    // @todo is there a way to filter for forms that actually us an editor?
+    $form['#attached']['css'][] = backdrop_get_path('module', 'ckeditor_skins') . '/css/moono-dark.css';
   }
 }
 
