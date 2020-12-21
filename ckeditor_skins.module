@@ -1,0 +1,77 @@
+<?php
+
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_ckeditor_settings_alter().
+ */
+function ckeditor_skins_ckeditor_settings_alter(&$settings, $format) {
+  global $base_url, $base_path;
+  $name = config_get('ckeditor_skins.settings', 'skin');
+
+  if ($name && $name != 'default') {
+    $skin_url = $base_url . $base_path . backdrop_get_path('module', 'ckeditor_skins') . '/skins/' . $name . '/';
+
+    // @see https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-skin
+    $settings['skin'] = "$name,$skin_url";
+  }
+}
+
+/**
+ * Implements hook_menu().
+ *
+ * Settings form for ckeditor_skins.
+ */
+function ckeditor_skins_menu() {
+  $items['admin/config/content/ckeditor_skins'] = array(
+    'title' => 'CKEditor Skin',
+    'description' => t('Set your preferred skin for CKEditor'),
+    'page callback' => 'backdrop_get_form',
+    'page arguments' => array('ckeditor_skins_settings'),
+    'access arguments' => array('administer site configuration'),// @todo
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  return $items;
+}
+
+/**
+ * Settings form for this module.
+ */
+function ckeditor_skins_settings() {
+  $form = array();
+  $form['#config'] = 'ckeditor_skins.settings';
+  $options = array(
+    'default' => t('Moono-Lisa (default)'),
+    'moonocolor' => t('Moono Color (like Moono, but with colorful icons)'),
+    'moono-dark' => t('Moono Dark (dark background, light icons)'),
+    'n1theme' => t('N1Theme (very clear and light)'),
+  );
+  $config = config_get('ckeditor_skins.settings');
+
+  $form['settings'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('CKEditor Skin'),
+  );
+  $form['settings']['skin'] = array(
+    '#type' => 'radios',
+    '#title' => t('Skins'),
+    '#default_value' => isset($config['skin']) ? $config['skin'] : 'default',
+    '#options' => $options,
+  );
+
+  return system_settings_form($form);
+}
+
+/**
+ * Implements hook_config_info().
+ */
+function ckeditor_skins_config_info() {
+  $prefixes['ckeditor_skins.settings'] = array(
+    'label' => t('CKEditor skins settings'),
+    'group' => t('Configuration'),
+  );
+  return $prefixes;
+}

@@ -1,0 +1,7 @@
+name = CKEditor Skins
+description = Additional CKEditor skins
+package = user-interface
+backdrop = 1.x
+type = module
+
+dependencies[] = ckeditor
