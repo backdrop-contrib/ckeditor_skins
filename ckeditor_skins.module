@@ -2,6 +2,7 @@
 
 /**
  * @file
+ * Main code for ckeditor_skins module.
  */
 
 /**
@@ -28,10 +29,11 @@ function ckeditor_skins_ckeditor_settings_alter(&$settings, $format) {
 function ckeditor_skins_menu() {
   $items['admin/config/content/ckeditor_skins'] = array(
     'title' => 'CKEditor Skin',
-    'description' => t('Set your preferred skin for CKEditor'),
+    'description' => 'Set your preferred skin for CKEditor',
     'page callback' => 'backdrop_get_form',
     'page arguments' => array('ckeditor_skins_settings'),
-    'access arguments' => array('administer site configuration'),// @todo
+    // @todo what could be the best permission for this?
+    'access arguments' => array('administer site configuration'),
     'type' => MENU_NORMAL_ITEM,
   );
 
