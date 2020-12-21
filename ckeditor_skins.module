@@ -16,6 +16,7 @@ function ckeditor_skins_ckeditor_settings_alter(&$settings, $format) {
 
     // @see https://ckeditor.com/docs/ckeditor4/latest/api/CKEDITOR_config.html#cfg-skin
     $settings['skin'] = "$name,$skin_url";
+    // @todo the dark skin needs some css love re Backdrop plugin icons.
   }
 }
 
