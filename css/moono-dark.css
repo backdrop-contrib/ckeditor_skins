@@ -1,6 +1,9 @@
 /**
  * Additional css for moono-dark.
  */
+form .cke_chrome {
+  border-color: #555;
+}
 form .cke_button_disabled .cke_button_icon {
   opacity: 0.8;
 }
