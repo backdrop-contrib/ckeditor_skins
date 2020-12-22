@@ -5,19 +5,31 @@ form .cke_chrome {
   border-color: #555;
 }
 form .cke_button_disabled .cke_button_icon {
-  opacity: 0.8;
+  opacity: 0.7;
 }
 form .cke_combo_disabled .cke_combo_inlinelabel,
 form .cke_combo_disabled .cke_combo_open {
   opacity: 0.5;
+}
+form .cke_path_item,
+form .cke_path_empty {
+  color: #eee;
+  text-shadow: none;
+}
+form .cke_button__backdropimage_icon,
+form .cke_button__accordion_icon {
+  filter: invert(1);
 }
 form .cke_bottom {
   background: #1f1f1f;
   border-top-color: #555;
   box-shadow: none;
 }
-form .cke_path_item,
-form .cke_path_empty {
+form a.cke_path_item:hover,
+form a.cke_path_item:focus,
+form a.cke_path_item:active {
+  box-shadow: none;
+  background: #555;
   color: #eee;
   text-shadow: none;
 }
