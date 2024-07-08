@@ -1,5 +1,16 @@
 # CKEditor Skins
 
+Note that CKEditor 4 is EOL (end of life) since June 2023, and continue using it
+is discouraged.
+
+As its successor CKEditor 5 is a completely different piece of software, there
+won't be any updates for this extending module.
+
+Consider switching to CKEditor 5 (core) or [TinyMCE](https://backdropcms.org/project/tinymce)
+instead. The latter ships with two different skins, a light and a dark variant.
+
+<hr>
+
 Provides additional CKEditor skins:
 
 - Moono Dark
@@ -8,7 +19,7 @@ Provides additional CKEditor skins:
 
 ## Installation
 
-- Install this module using the official [Backdrop CMS instructions](https://backdropcms.org/guide/modules)
+- Install this module using the official [Backdrop CMS instructions](https://docs.backdropcms.org/documentation/extend-with-modules)
 
 ## Issues
 
